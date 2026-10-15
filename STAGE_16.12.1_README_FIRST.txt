@@ -1,0 +1,1 @@
+v16.12.1 corrections: add missing trilingual bold Reflection questions heading in Section 1.1; lecturer Quality Check is rendered English/Mandarin/pinyin line by line. Original lecturer note text retained; answer-key descriptions translated for display. Topic 1 quiz and Topic 3 quiz unchanged. Please test locally before publishing.

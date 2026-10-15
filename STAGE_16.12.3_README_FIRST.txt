@@ -1,0 +1,5 @@
+Stage 16.12.3 — approved 12 topic titles
+
+Changed only the topic title data and title-display bindings in index.html; the existing topic descriptions remain unchanged. Approved lecture and quiz data and master files preserved. Service worker cache name updated for later deployment.
+
+Test locally by opening index.html in Edge. Do not replace the live site until browser tests pass.

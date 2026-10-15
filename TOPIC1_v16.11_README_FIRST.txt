@@ -1,0 +1,14 @@
+BECE1064 v16.11 — Topic 1 visual and formatting improvements
+
+NEW:
+- Bold formatting for approved Topic 1 activity, example, reflection and takeaway headings.
+- Compact paragraph and image spacing.
+- A trilingual, offline-friendly schematic timeline of printing and reading technology.
+- Original two embedded Topic 1 illustrations retained.
+
+IMPORTANT LIMITATION:
+- The printing timeline uses icons/symbols, NOT historical photographs. Museum photographs and additional classroom photographs are not included because reuse rights have not been verified.
+- The approved Topic 1 quiz is preserved as an original Word file, but is NOT YET integrated into the quiz UI.
+- Read-aloud remains planned, not implemented.
+- Do not publish to GitHub Pages until local visual and Topic 3 regression testing succeeds.
+- Open index.html locally in Edge and test Topic 1 and Topic 3.

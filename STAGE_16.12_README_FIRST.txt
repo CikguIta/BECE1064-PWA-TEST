@@ -1,0 +1,7 @@
+BECE1064 v16.12 — Topic 1 Quiz Integration
+
+Added: approved Topic 1 10-question trilingual quiz, per-option trilingual feedback, partial scoring, saved answers, separate lecturer-only expandable Quality Check, and Section 1.1 reflection-heading formatting correction.
+Preserved: approved Word master files; Topic 3 quiz source and storage keys; existing lecture content.
+Pending: copyright-verified historical photographs and classroom imagery. Existing timeline remains symbolic.
+Test locally first. Do NOT overwrite v16.11 or publish to GitHub Pages before testing.
+Lecturer notes are in an expandable details section and are not access-controlled: do not treat this as secure student/lecturer role separation.

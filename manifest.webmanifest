@@ -1,19 +1,33 @@
 {
-  "name": "BECE1064 Young Children's Literature",
-  "short_name": "BECE1064 Literature",
+  "name": "BECE1064 Young Children's Literature — TEST",
+  "short_name": "BECE1064 TEST",
   "description": "Local-first multilingual learning app for Young Children's Literature.",
   "lang": "en",
   "dir": "ltr",
-  "id": "bece1064-young-childrens-literature",
+  "id": "./?app=bece1064-pwa-test-topic2",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
   "orientation": "any",
   "background_color": "#f7f4ee",
   "theme_color": "#7b5e57",
-  "categories": ["education", "books", "learning"],
+  "categories": [
+    "education",
+    "books",
+    "learning"
+  ],
   "icons": [
-    {"src":"./icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
-    {"src":"./icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+    {
+      "src": "./icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "./icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
   ]
 }

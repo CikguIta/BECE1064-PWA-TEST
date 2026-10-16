@@ -1,0 +1,1 @@
+Stage 16.14 Topic 2 formatting test only. Changes: bold English/Mandarin/pinyin subheadings; italic compact captions. No approved lecture text or quiz data modified. Keep separate from production and test repo until reviewed.

@@ -1,52 +1,52 @@
-const CACHE_NAME = 'bece1064-app-shell-v16.12.3';
-
+/* Test-repository-only offline cache; paths are relative to this service worker's scope. */
+const CACHE_NAME = 'bece1064-pwa-test-topic2-v16.14.1';
+const CACHE_PREFIX = 'bece1064-pwa-test-topic2-';
+const APP_SHELL = [
+  './', './index.html', './manifest.webmanifest', './icon-192.png', './icon-512.png',
+  './topic1_illustration_1.jpg', './topic1_illustration_2.jpg', './topic2-integration.js',
+  './topic2_figure_1.png', './topic2_figure_2.png', './topic2_figure_3.png',
+  './topic2_figure_4.png', './topic2_figure_5.png', './topic2_figure_6.png',
+  './topic2_figure_7.png', './topic2_figure_8.png'
+];
 self.addEventListener('install', event => {
   event.waitUntil((async () => {
     const cache = await caches.open(CACHE_NAME);
-    await cache.addAll(['./', './manifest.webmanifest', './icon-192.png', './icon-512.png', './topic1_illustration_1.jpg', './topic1_illustration_2.jpg']);
+    await cache.addAll(APP_SHELL);
     await self.skipWaiting();
   })());
 });
-
 self.addEventListener('activate', event => {
   event.waitUntil((async () => {
     const keys = await caches.keys();
-    await Promise.all(keys.filter(key => key.startsWith('bece1064-app-shell-') && key !== CACHE_NAME).map(key => caches.delete(key)));
+    await Promise.all(keys.filter(key => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME).map(key => caches.delete(key)));
     await self.clients.claim();
   })());
 });
-
 self.addEventListener('fetch', event => {
   const request = event.request;
-  if (request.method !== 'GET' || new URL(request.url).origin !== self.location.origin) return;
-
+  const url = new URL(request.url);
+  if (request.method !== 'GET' || url.origin !== self.location.origin || !url.pathname.startsWith(new URL(self.registration.scope).pathname)) return;
   if (request.mode === 'navigate') {
     event.respondWith((async () => {
+      const cache = await caches.open(CACHE_NAME);
       try {
         const response = await fetch(request);
-        const cache = await caches.open(CACHE_NAME);
-        await cache.put(request, response.clone());
+        if (response.ok) await cache.put(request, response.clone());
         return response;
       } catch (error) {
-        const cache = await caches.open(CACHE_NAME);
-        return (await cache.match(request)) || (await cache.match(new URL(request.url).origin + '/')) || new Response('BECE1064 is offline. Please open the app once while online before using it offline.', {status: 503, headers: {'Content-Type': 'text/plain; charset=utf-8'}});
+        return (await cache.match(request)) || (await cache.match(new URL('./index.html', self.registration.scope))) || (await cache.match(new URL('./', self.registration.scope))) || new Response('BECE1064 test app is offline. Open the app once online first.', {status: 503, headers: {'Content-Type': 'text/plain; charset=utf-8'}});
       }
     })());
     return;
   }
-
   event.respondWith((async () => {
-    const cached = await caches.match(request);
+    const cache = await caches.open(CACHE_NAME);
+    const cached = await cache.match(request);
     if (cached) return cached;
     try {
       const response = await fetch(request);
-      if (response.ok) {
-        const cache = await caches.open(CACHE_NAME);
-        await cache.put(request, response.clone());
-      }
+      if (response.ok) await cache.put(request, response.clone());
       return response;
-    } catch (error) {
-      return new Response('', {status: 504});
-    }
+    } catch (error) { return new Response('', {status: 504}); }
   })());
 });

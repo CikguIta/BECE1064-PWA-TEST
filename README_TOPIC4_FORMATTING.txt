@@ -1,0 +1,1 @@
+Topic 4 formatting-only revision: bold trilingual headings; bullet points for explanations; numbered lists where already numbered in the approved source; preserved original approved lecture and quiz text. For local review only; do not upload to GitHub until tested.

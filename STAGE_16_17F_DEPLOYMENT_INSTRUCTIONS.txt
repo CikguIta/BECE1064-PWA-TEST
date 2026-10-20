@@ -1,0 +1,11 @@
+BECE1064 — Stage 16.17F TEST DEPLOYMENT
+
+TARGET: https://github.com/CikguIta/BECE1064-PWA-TEST (test repository ONLY)
+
+This ZIP is a complete repository-root content package. Extract it first. Copy the files and folders from inside the extracted folder into the local BECE1064-PWA-TEST repository working folder, preserving file names and folders. Do NOT replace the production repository. Do NOT delete the .git folder or .github/workflows in your local test repository. Do NOT copy the outer ZIP as one file.
+
+Before committing, review changed files in GitHub Desktop and confirm only the test repository is selected. Commit and push to the test main branch only after review. Then refresh the test GitHub Pages site, check Topic 4 and the five images, test quiz and offline mode.
+
+Preserved: approved Topics 1-3, Topic 4 trilingual lecture formatting and quiz; previous saved-answer behaviour.
+
+Checks: JavaScript syntax checks passed for topic2, topic3, topic4 integrations and quiz data; service-worker precache paths all exist. Browser/live-site testing still required.

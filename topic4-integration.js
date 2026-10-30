@@ -79,9 +79,7 @@ function renderTopic4Quiz(){
  const answered=topic4QuizQuestions.filter(q=>answers[q.number]);
  const correct=answered.filter(q=>answers[q.number]===q.correct).length;
  html+='<div class="card" role="status"><h3>Progress / 进度 / Jìndù</h3><p>Answered: '+answered.length+'/10 · Correct: '+correct+'/'+answered.length+'</p>'+(answered.length===10?'<p>Final score: '+correct+'/10</p>':'<p>Interim score — answer all questions for a final score.</p>')+'<button class="action secondary" onclick="resetTopic4Quiz()">Reset Topic 4 answers / 重置答案 / Chóngzhì dá’àn</button></div>';
- html+='<details class="card" style="margin-top:1rem"><summary><b>Lecturer-facing Quality Check and Teaching Notes / 讲师教学笔记 / Jiǎngshī jiàoxué bǐjì</b></summary><p>For lecturer review; expandable, not access-controlled.</p>';
- for(const n of topic4LecturerNotes){html+='<section style="margin:1rem 0"><h4>'+topic4Escape(n.heading)+'</h4>'+n.notes.map(t=>'<p>'+topic4Escape(t)+'</p>').join('')+'</section>'}
- html+='</details></section>';host.innerHTML=html;
+ html+='</section>';host.innerHTML=html;
 }
 function setTopic4Answer(n,letter){const a=topic4Answers();a[n]=letter;localStorage.setItem(TOPIC4_STORAGE_KEY,JSON.stringify(a));renderTopic4Quiz()}
 function resetTopic4Quiz(){if(!confirm('Reset Topic 4 saved answers?'))return;localStorage.removeItem(TOPIC4_STORAGE_KEY);renderTopic4Quiz()}
